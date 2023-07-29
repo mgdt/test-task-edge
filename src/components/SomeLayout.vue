@@ -6,7 +6,15 @@ const modalsStore = useModalsStore();
 
 <template>
   <div class="container">
-    <button @click="modalsStore.toggleModal">Открыть модальное окно</button>
+    <button @click="modalsStore.toggleModal('message')">
+      Открыть модальное окно
+    </button>
+    <button
+      style="margin-left: 20px"
+      @click="modalsStore.toggleModal('example')"
+    >
+      Открыть другую модалку (для примера)
+    </button>
     <h1>Lorem ipsum</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quis

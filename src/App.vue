@@ -6,8 +6,19 @@ import SomeLayout from "./components/SomeLayout.vue";
 
 <template>
   <SomeLayout></SomeLayout>
-  <Modal>
+  <Modal :name="'message'">
     <ModalForm></ModalForm>
+  </Modal>
+  <Modal :name="'example'">
+    <div style="width: 300px">
+      <h1 style="margin-bottom: 20px">Другая модалка</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
+        quisquam aspernatur ad veritatis earum possimus inventore et
+        consequuntur, esse veniam qui consequatur iusto. Libero odit, blanditiis
+        consectetur labore reiciendis ad.
+      </p>
+    </div>
   </Modal>
 </template>
 

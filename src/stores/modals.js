@@ -2,17 +2,20 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useModalsStore = defineStore("modals", () => {
-  const modalShown = ref(false);
+  const modals = ref({
+    message: false,
+    example: false,
+  });
 
-  function toggleModal() {
-    if (modalShown.value) {
-      modalShown.value = !modalShown.value;
+  function toggleModal(modal) {
+    if (modals.value[modal]) {
+      modals.value[modal] = !modals.value[modal];
       document.body.classList.remove("scroll-disabled");
       return;
     }
-    modalShown.value = !modalShown.value;
+    modals.value[modal] = !modals.value[modal];
     document.body.classList.add("scroll-disabled");
   }
 
-  return { modalShown, toggleModal };
+  return { modals, toggleModal };
 });
