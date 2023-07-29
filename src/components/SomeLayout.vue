@@ -158,7 +158,9 @@ const modalsStore = useModalsStore();
 
 <style scoped>
 .container {
-  width: 1200px;
+  max-width: 1240px;
+  padding: 20px;
+  padding-right: 20px;
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 50px;

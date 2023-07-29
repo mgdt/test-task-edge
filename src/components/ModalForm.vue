@@ -22,7 +22,7 @@ const schema = yup.object({
   message: yup.string().max(501, "Поле содержит более 500 символов"),
 });
 
-const { values, errors, defineComponentBinds, meta } = useForm({
+const { values, errors, defineComponentBinds, meta, handleSubmit } = useForm({
   validationSchema: schema,
   initialValues: {
     email: "",
@@ -49,16 +49,14 @@ const message = defineComponentBinds("message", {
   validateOnModelUpdate: false,
 });
 
-function handleSubmit() {
-  if (meta.value.valid) {
-    alert(JSON.stringify(values));
-  }
-  values.value.name = "";
-}
+const onSubmit = handleSubmit((values, { resetForm }) => {
+  alert(JSON.stringify(values));
+  resetForm();
+});
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="onSubmit">
     <ModalInput
       v-bind="name"
       :errors="errors?.name"
