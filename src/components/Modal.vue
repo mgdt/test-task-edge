@@ -1,17 +1,23 @@
 <script setup>
 import { useModalsStore } from "../stores/modals";
 
+const props = defineProps({
+  name: String,
+});
+
 const modalsStore = useModalsStore();
 </script>
 
 <template>
   <div
     class="modal-wrap"
-    :class="{ active: modalsStore.modalShown }"
-    @click="modalsStore.toggleModal"
+    :class="{ active: modalsStore.modals[props.name] }"
+    @click="modalsStore.toggleModal(props.name)"
   >
     <div class="modal" @click.stop="">
-      <div @click="modalsStore.toggleModal" class="modal-close">&times;</div>
+      <div @click="modalsStore.toggleModal(props.name)" class="modal-close">
+        &times;
+      </div>
       <slot></slot>
     </div>
   </div>
