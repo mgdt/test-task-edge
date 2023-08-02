@@ -9,6 +9,7 @@ const modalsStore = useModalsStore();
 </script>
 
 <template>
+  <h1>Hello</h1>
   <div
     class="modal-wrap modal-test"
     :class="{ active: modalsStore.modals[props.name] }"
