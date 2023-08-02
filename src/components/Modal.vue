@@ -10,7 +10,7 @@ const modalsStore = useModalsStore();
 
 <template>
   <div
-    class="modal-wrap"
+    class="modal-wrap modal-test"
     :class="{ active: modalsStore.modals[props.name] }"
     @click="modalsStore.toggleModal(props.name)"
   >
